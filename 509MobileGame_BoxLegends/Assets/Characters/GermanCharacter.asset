@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0368c2974c9606d4391af965189d1f14, type: 3}
+  m_Name: GermanCharacter
+  m_EditorClassIdentifier: 
+  FlagImage: {fileID: 2800000, guid: 29205a157b1a3e248853c6ddfba45fe8, type: 3}
+  CharacterImage: {fileID: 2800000, guid: 3bd7bd5017e989d46acc1b02f7446b2f, type: 3}
+  CharacterName: Hans "The Hammer" Schmidt
+  CharacterBio: ' Hans "The Hammer" Schmidt was a talented boxer from Berlin, trained
+    relentlessly by his father to become a ruthless fighter. He earned a reputation
+    for using underhanded tactics in the ring and had connections to organized crime,
+    but he continued to climb the ranks and eventually faced off against "The Gypsy
+    King" Tyson Fury. Their battles became legendary, but Schmidt was never able
+    to defeat Fury. Despite this, he remained a fearsome and ruthless fighter, with
+    a lasting legacy in the world of boxing.'
+  Strength: 2.6
+  Dodge: 1.8
+  accuracy: 2.3
+  defense: 1.4
+  stamina: 2.8

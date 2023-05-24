@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0368c2974c9606d4391af965189d1f14, type: 3}
+  m_Name: EnglishCharacter
+  m_EditorClassIdentifier: 
+  FlagImage: {fileID: 2800000, guid: 6c2066972b2c89842ad73d68242f4513, type: 3}
+  CharacterImage: {fileID: 2800000, guid: c938be4fb0a2cf24da026923b1df2ee2, type: 3}
+  CharacterName: Tommy"The Iron Fist" Smith
+  CharacterBio: ' Tommy "The Iron Fist" Smith grew up in a working-class neighborhood
+    in Manchester, England, where he began training in boxing inspired by his father''s
+    passion. Despite financial struggles and limited resources, he became a top amateur
+    boxer and turned professional, quickly earning a reputation as one of the best
+    fighters in the sport. He won multiple world championships and remained humble,
+    dedicated to helping young boxers from similar backgrounds achieve their dreams.'
+  Strength: 2.4
+  Dodge: 1.3
+  accuracy: 1.7
+  defense: 3
+  stamina: 2

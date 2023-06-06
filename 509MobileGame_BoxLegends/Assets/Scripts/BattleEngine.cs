@@ -455,6 +455,29 @@ public class BattleEngine : MonoBehaviour
             activeToggles.Remove(i);
             }
         }
+        if (P1Turn == true)
+        {
+            foreach(int toggleindex in activeToggles)
+            {
+                switch (toggleindex)
+                {
+                    case 0:
+                        { 
+                        
+                        }
+
+
+                        break;
+                }
+
+            }
+        }
+        else
+        { 
+        
+        }
+
+
     }
     void ClearStats()
     {

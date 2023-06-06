@@ -162,13 +162,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18495756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 606, y: 1179, z: -227}
-  m_LocalScale: {x: 22.898611, y: 22.898611, z: 0.19114032}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 35.92585, y: 119.2085, z: -123.56316}
+  m_LocalScale: {x: 12.464425, y: 12.464425, z: 0.104043625}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 777549744}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &18495761
 SpriteRenderer:
@@ -2167,7 +2167,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629596937
 GameObject:
@@ -2208,13 +2208,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629596937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 161, y: 1189, z: -227}
-  m_LocalScale: {x: 20.105368, y: 23.398083, z: 0.16782443}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -206.3015, y: 124.65182, z: -123.56317}
+  m_LocalScale: {x: 10.943976, y: 12.736303, z: 0.09135205}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 777549744}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &629596942
 SpriteRenderer:
@@ -2473,6 +2473,8 @@ RectTransform:
   - {fileID: 1276636342}
   - {fileID: 1970376691}
   - {fileID: 1316321865}
+  - {fileID: 629596941}
+  - {fileID: 18495760}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2500,7 +2502,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777549740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4925,7 +4927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 18.231, y: -42.929993}
+  m_AnchoredPosition: {x: 18.231, y: -42.92993}
   m_SizeDelta: {x: 76.4614, y: 59.362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595250211

@@ -10,9 +10,9 @@ using UnityEngine.UI;
 public class BattleEngine : MonoBehaviour
 {
     [Header("Canvas")]
-     private Canvas AttacksMain;
-     private Canvas AttacksHead;
-     private Canvas Attacksbody;
+    private Canvas AttacksMain;
+    private Canvas AttacksHead;
+    private Canvas Attacksbody;
 
     [Header("DialogueBox")]
     private Image dialoguebackground;
@@ -39,7 +39,7 @@ public class BattleEngine : MonoBehaviour
 
     [SerializeField] private Toggle[] toggles;
     private List<int> activeToggles = new List<int>();
-    private Button ConfirmButton,HeadbodySwitch;
+    private Button ConfirmButton, HeadbodySwitch;
     private Toggle SpecialAttack;
     private bool ButtonIsClicked, AttackSucc, P1Turn;
     private Dictionary<int, (int, int, int)> toggleValues = new Dictionary<int, (int, int, int)>();
@@ -55,25 +55,27 @@ public class BattleEngine : MonoBehaviour
     [SerializeField] private int AmountKnockdownP1, AmountKnockdownP2;
     private Text WinnersText;
     private bool GameContinues;
-    private float waittimer =3f;
+    private float waittimer = 3f;
 
+    // Animations
 
+    List<int> ActiveToggles = new List<int>();
 
-    private enum GameStates {Start,Choosing,PlayerDamage,PlayerTwoStart,PlayerTwoChoose,PlayerTwoDamage,Nextstage}
-    [SerializeField]private GameStates CurrentState;
+    private enum GameStates { Start, Choosing, PlayerDamage, PlayerTwoStart, PlayerTwoChoose, PlayerTwoDamage, Nextstage }
+    [SerializeField] private GameStates CurrentState;
 
     private void Awake()
     {
-            Strengthp1=PlayerPrefs.GetFloat("Strength_p1");
-            Dodgep1=PlayerPrefs.GetFloat("Dodge_p1");
-            Accuracyp1=PlayerPrefs.GetFloat("Accuracy_p1");
-            Defensep1=PlayerPrefs.GetFloat("Defense_p1");
-            Staminap1=PlayerPrefs.GetFloat("Stamina_p1");
-            Strengthp2=PlayerPrefs.GetFloat("Strength_p2");
-            Dodgep2=PlayerPrefs.GetFloat("Dodge_p2");
-            Accuracyp2=PlayerPrefs.GetFloat("Accuracy_p2");
-            Defensep2=PlayerPrefs.GetFloat("Defense_p2");
-            Staminap2=PlayerPrefs.GetFloat("Stamina_p2");
+        Strengthp1 = PlayerPrefs.GetFloat("Strength_p1");
+        Dodgep1 = PlayerPrefs.GetFloat("Dodge_p1");
+        Accuracyp1 = PlayerPrefs.GetFloat("Accuracy_p1");
+        Defensep1 = PlayerPrefs.GetFloat("Defense_p1");
+        Staminap1 = PlayerPrefs.GetFloat("Stamina_p1");
+        Strengthp2 = PlayerPrefs.GetFloat("Strength_p2");
+        Dodgep2 = PlayerPrefs.GetFloat("Dodge_p2");
+        Accuracyp2 = PlayerPrefs.GetFloat("Accuracy_p2");
+        Defensep2 = PlayerPrefs.GetFloat("Defense_p2");
+        Staminap2 = PlayerPrefs.GetFloat("Stamina_p2");
     }
     void Start()
     {
@@ -117,7 +119,7 @@ public class BattleEngine : MonoBehaviour
         GameContinues = true;
 
 
-        
+
         for (int i = 0; i < toggles.Length; i++)
         {
             int toggleIndex = i;
@@ -139,13 +141,13 @@ public class BattleEngine : MonoBehaviour
 
                     DialogueController(true);
                     AttacksMain.enabled = false;
-                    TextController.instance.Changetext("Player One Choose Your Attack",30);
+                    TextController.instance.Changetext("Player One Choose Your Attack", 30);
                     if (Input.GetMouseButtonDown(0))
                     {
                         AttacksMain.enabled = true;
                         ChangeStates(GameStates.Choosing);
                     }
-                break;
+                    break;
                 }
             case GameStates.Choosing:
                 {
@@ -156,7 +158,7 @@ public class BattleEngine : MonoBehaviour
                         PlayerUpdate(true);
                         ChangeStates(GameStates.PlayerDamage);
                     }
-                break;
+                    break;
                 }
             case GameStates.PlayerDamage:
                 {
@@ -169,8 +171,8 @@ public class BattleEngine : MonoBehaviour
                     {
                         TextController.instance.Changetext(TrueOrFalse + "     Damage = " + totalAttackDamage + "   Stamina Cost = " + totalStaminaCost + "   Stamina Drain = " + totalstaminadrain, 14);
                     }
-                        ButtonIsClicked = false;
-                        AttacksMain.enabled = false;
+                    ButtonIsClicked = false;
+                    AttacksMain.enabled = false;
                     ToggleLowButtons(false);
                     if (waittimer <= 0)
                     {
@@ -182,7 +184,7 @@ public class BattleEngine : MonoBehaviour
                         }
                     }
                 }
-                    break;
+                break;
             case GameStates.PlayerTwoStart:
                 {
                     waittimer = 3f;
@@ -194,7 +196,7 @@ public class BattleEngine : MonoBehaviour
 
                     P1Turn = false;
                     AttacksMain.enabled = false;
-                    TextController.instance.Changetext("Player Two Choose Your Attack",30);
+                    TextController.instance.Changetext("Player Two Choose Your Attack", 30);
                     if (Input.GetMouseButtonDown(0))
                     {
                         AttacksMain.enabled = true;
@@ -212,7 +214,7 @@ public class BattleEngine : MonoBehaviour
                     }
                     break;
                 }
-                case GameStates.PlayerTwoDamage:
+            case GameStates.PlayerTwoDamage:
                 {
                     waittimer -= Time.deltaTime;
 
@@ -224,7 +226,7 @@ public class BattleEngine : MonoBehaviour
                     {
                         TextController.instance.Changetext(TrueOrFalse + "     Damage = " + totalAttackDamage + "   Stamina Cost = " + totalStaminaCost + "   Stamina Drain = " + totalstaminadrain, 14);
                     }
-                   
+
 
                     ButtonIsClicked = false;
                     AttacksMain.enabled = false;
@@ -232,7 +234,7 @@ public class BattleEngine : MonoBehaviour
 
                     if (waittimer <= 0)
                     {
-                       
+
                         exceedslimits(true);
                         ClearStats();
                         if (GameContinues == true)
@@ -240,10 +242,10 @@ public class BattleEngine : MonoBehaviour
                             ChangeStates(GameStates.Nextstage);
                         }
                     }
-                    
+
                     break;
                 }
-                case GameStates.Nextstage:
+            case GameStates.Nextstage:
                 {
                     waittimer = 3f;
                     ToggleLowButtons(true);
@@ -256,16 +258,16 @@ public class BattleEngine : MonoBehaviour
                         {
                             PlayerStamina = 0;
                         }
-                        PlayerStamina += Staminap1*15;
+                        PlayerStamina += Staminap1 * 15;
 
                         if (EnemyStamina <= 0)
-                        { 
-                        EnemyStamina= 0;
+                        {
+                            EnemyStamina = 0;
                         }
-                        EnemyStamina += Staminap2*15;
+                        EnemyStamina += Staminap2 * 15;
                         //
                         PlayerHealth += 25;
-                        EnemyHealth += 25; 
+                        EnemyHealth += 25;
                     }
                     ChangeStates(GameStates.Start);
                     RoundTimerFloat -= 30;
@@ -437,6 +439,20 @@ public class BattleEngine : MonoBehaviour
                 PlayerHealth -= totalAttackDamage;
                 
                 PlayerStamina -= totalstaminadrain;
+            }
+        }
+    }
+    private void AnimationDetection()
+    {
+        for (int i = 0; i < toggles.Length; i++)
+        {
+            if (toggles[i].isOn)
+            {
+                activeToggles.Add(i);
+            }
+            if (toggles[i].isOn == false)
+            { 
+            activeToggles.Remove(i);
             }
         }
     }

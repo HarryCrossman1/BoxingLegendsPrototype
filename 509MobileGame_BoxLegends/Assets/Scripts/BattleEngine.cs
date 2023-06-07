@@ -10,9 +10,9 @@ using UnityEngine.UI;
 public class BattleEngine : MonoBehaviour
 {
     [Header("Canvas")]
-    private Canvas AttacksMain;
-    private Canvas AttacksHead;
-    private Canvas Attacksbody;
+  // [SerializeField] private Canvas AttacksMain;
+    [SerializeField] private Canvas AttacksHead;
+    [SerializeField] private Canvas Attacksbody;
 
     [Header("DialogueBox")]
     private Image dialoguebackground;
@@ -80,7 +80,7 @@ public class BattleEngine : MonoBehaviour
     void Start()
     {
         //Setting Up The Referances 
-        AttacksMain = GameObject.Find("Attacks").GetComponent<Canvas>();
+       // AttacksMain = GameObject.Find("Attacks").GetComponent<Canvas>();
         AttacksHead = GameObject.Find("AttacksHead").GetComponent<Canvas>();
         Attacksbody = GameObject.Find("AttacksBody").GetComponent<Canvas>();
 
@@ -140,11 +140,13 @@ public class BattleEngine : MonoBehaviour
                     KoSliderImageTwo.enabled = false;
 
                     DialogueController(true);
-                    AttacksMain.enabled = false;
+                    AttacksHead.enabled = false;
+                    Attacksbody.enabled = false;
                     TextController.instance.Changetext("Player One Choose Your Attack", 30);
                     if (Input.GetMouseButtonDown(0))
                     {
-                        AttacksMain.enabled = true;
+                        AttacksHead.enabled = true;
+                        Attacksbody.enabled = false;
                         ChangeStates(GameStates.Choosing);
                     }
                     break;
@@ -172,7 +174,8 @@ public class BattleEngine : MonoBehaviour
                         TextController.instance.Changetext(TrueOrFalse + "     Damage = " + totalAttackDamage + "   Stamina Cost = " + totalStaminaCost + "   Stamina Drain = " + totalstaminadrain, 14);
                     }
                     ButtonIsClicked = false;
-                    AttacksMain.enabled = false;
+                    Attacksbody.enabled = false;
+                    AttacksHead.enabled = false;
                     ToggleLowButtons(false);
                     if (waittimer <= 0)
                     {
@@ -195,11 +198,13 @@ public class BattleEngine : MonoBehaviour
                     ToggleLowButtons(true);
 
                     P1Turn = false;
-                    AttacksMain.enabled = false;
+                    Attacksbody.enabled = false;
+                    AttacksHead.enabled = false;
                     TextController.instance.Changetext("Player Two Choose Your Attack", 30);
                     if (Input.GetMouseButtonDown(0))
                     {
-                        AttacksMain.enabled = true;
+                        Attacksbody.enabled = false;
+                        AttacksHead.enabled = true;
                         ChangeStates(GameStates.PlayerTwoChoose);
                     }
                     break;
@@ -229,7 +234,8 @@ public class BattleEngine : MonoBehaviour
 
 
                     ButtonIsClicked = false;
-                    AttacksMain.enabled = false;
+                    Attacksbody.enabled = false;
+                    AttacksHead.enabled = false;
                     ToggleLowButtons(false);
 
                     if (waittimer <= 0)
